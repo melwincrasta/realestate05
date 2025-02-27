@@ -1,0 +1,48 @@
+<!-- userapp/product_detail.html -->
+{% extends 'sellerapp/base.html' %}
+
+{% block content %}
+    <div class="product-detail-container">
+        <h1>{{ property.name }}</h1>
+
+        {% if property.image %}
+        <img src="{{ property.image.url }}" alt="Image for {{ property.name }}" width="500" height="500" class="property-image">
+
+    {% else %}
+        <p>No image uploaded</p>
+    {% endif %}
+        
+        <p><strong>Description:</strong> {{ property.description }}</p>
+        <p><strong>Price:</strong> ${{ property.price }}</p>
+        <p><strong>Seller:</strong> {{ property.seller.username }}</p>
+
+        <a href="{% url 'buyer_dashboard' %}" class="back-btn">Back to Dashboard</a>
+    </div>
+{% endblock %}
+
+<style>
+    .product-detail-container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .product-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .back-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .back-btn:hover {
+        background-color: #555;
+    }
+</style>

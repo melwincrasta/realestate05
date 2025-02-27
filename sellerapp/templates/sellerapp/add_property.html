@@ -1,0 +1,10 @@
+<!--add_product.html-->
+{% extends 'sellerapp/base.html' %}
+{% block content %}
+<h1>Add Property</h1>
+    <form method="post" enctype="multipart/form-data"><!-- ,enctype="multipart/form-data"> mandatory for images-->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add</button>
+</form>
+{% endblock %}

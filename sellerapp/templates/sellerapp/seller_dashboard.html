@@ -1,0 +1,23 @@
+<!--seller_dashboard.html-->
+{% extends 'sellerapp/base.html' %}
+{% block content %}
+<h1>Welcome, {{ user.username }}</h1>
+<div class="container mt-4">
+    <div class="row">
+{% for property in properties %}
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{property.image.url}}" alt="{{ property.name }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ property.name }}</h5>
+      <p class="card-text">{{ property.description }}.</p>
+      <a href="{% url 'edit_property' property.pk %}" class="btn btn-primary">edit</a>
+      <a href="{% url 'delete_property' property.pk %}" class="btn btn-primary">delete</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+
+
+{% endblock %}

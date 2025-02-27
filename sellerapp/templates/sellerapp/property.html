@@ -1,0 +1,47 @@
+
+
+{% extends 'sellerapp/base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="container mt-4">
+  <div class="row">
+    {% for property in properties %}
+    <div class="col-md-4 mb-4">
+      <div class="card" style="width: 18rem;">
+        <img src="{{ property.Images.url }}" class="card-img-top" alt="{{ property.Title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ property.Title }}</h5>
+          <p class="card-text">{{ property.Description }}</p>
+          <p class="card-text"><strong>Price:</strong> {{ property.Price }}</p>
+          <a href="{% url 'view_property' property.id %}" class="btn btn-primary">View</a>
+          <a href="{% url 'edit_property' property.id %}" class="btn btn-warning">Edit</a>
+          <a href="{% url 'delete_property' property.id %}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+              
